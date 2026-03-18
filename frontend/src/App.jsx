@@ -38,33 +38,55 @@ function App() {
     }
   };
 
-  return (
-    <div className="app">
-      <h2>Gemini AI Chat</h2>
 
+
+return (
+  <div className="app">
+    <div className="chat-container">
+
+      {/* Header */}
+      <div className="header">
+        <h2>✨ Gemini AI Chat</h2>
+        <p className="description">
+          Ask anything and get instant AI-powered responses using Google Gemini.
+          This chat app helps you learn, explore ideas, and solve problems quickly.
+        </p>
+      </div>
+
+      {/* Chat Box */}
       <div className="chat-box">
+        {chat.length === 0 && (
+          <div className="welcome">
+            <p>👋 Welcome! Start a conversation with Gemini AI.</p>
+          </div>
+        )}
+
         {chat.map((c, i) => (
-          <div key={i} className={c.sender}>
-            <b>{c.sender === "user" ? "You: " : "Gemini: "}</b>
-            {c.text}
+          <div key={i} className={`message ${c.sender}`}>
+            <span>{c.text}</span>
           </div>
         ))}
 
-        {loading && <div className="bot">Gemini is typing...</div>}
+        {loading && (
+          <div className="message bot typing">Gemini is typing...</div>
+        )}
       </div>
 
+      {/* Input */}
       <div className="input-area">
         <input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Ask something..."
+          placeholder="Type your message..."
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage}>➤</button>
       </div>
+
     </div>
-  );
+  </div>
+);
+
 }
 
-export default App;
-
+ export default App;

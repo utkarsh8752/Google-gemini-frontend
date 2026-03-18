@@ -1,30 +1,171 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+}
+
+/* App Wrapper */
 .app {
-  text-align: center;
-  font-family: Arial;
-}
-
-.chat-box {
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   padding: 10px;
+}
+
+/* Chat Container */
+.chat-container {
+  width: 100%;
+  max-width: 420px;
+  height: 90vh;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  background: #6c63ff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.header h2 {
+  font-size: 22px;
+}
+
+.description {
+  font-size: 13px;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* Chat Box */
+.chat-box {
+  flex: 1;
+  padding: 15px;
   overflow-y: auto;
-  background: #f9f9f9;
+  background: #f5f5f5;
 }
 
-.user {
-  text-align: right;
-  color: blue;
-  margin: 8px;
+/* Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
 }
 
-.bot {
-  text-align: left;
-  color: green;
-  margin: 8px;
+/* Messages */
+.message {
+  display: flex;
+  margin-bottom: 10px;
 }
 
+.message span {
+  padding: 10px 14px;
+  border-radius: 15px;
+  max-width: 75%;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+/* User Message */
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user span {
+  background: #6c63ff;
+  color: white;
+}
+
+/* Bot Message */
+.message.bot span {
+  background: #e4e6eb;
+  color: #333;
+}
+
+/* Typing */
+.typing {
+  font-style: italic;
+  color: gray;
+}
+
+/* Welcome Message */
+.welcome {
+  text-align: center;
+  color: gray;
+  margin-top: 100px;
+  font-size: 14px;
+}
+
+/* Input Area */
 .input-area {
-  margin-top: 10px;
+  display: flex;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.input-area button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.input-area button:hover {
+  background: #574fd6;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 600px) {
+  .chat-container {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .message span {
+    font-size: 13px;
+  }
+
+  .input-area input {
+    font-size: 14px;
+  }
+
+  .input-area button {
+    padding: 0 15px;
+    font-size: 16px;
+  }
 }
