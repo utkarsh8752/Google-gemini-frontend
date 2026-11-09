@@ -132,7 +132,7 @@ function App() {
       <div className="chat-container">
         {/* Header */}
         <div className="header">
-          <h2>✨ Gemini AI Chat</h2>
+          <h2>✨ Gemini AI Chatbot</h2>
           <p className="description">
             Ask anything and get instant AI-powered responses using Google
             Gemini. This chat app helps you learn, explore ideas, and solve
